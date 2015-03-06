@@ -1,0 +1,29 @@
+{
+  "name": "ccnet2",
+  "version": "0.0.1",
+  "description": "CCNET Protocol",
+  "main": "./lib/orm2",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devoll/ccnet2.git"
+  },
+  "keywords": [
+    "CCNET",
+    "CashCode",
+    "protocol",
+    "serialport"
+  ],
+  "author": "Pavel Nikitaev <devoll@devoll.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devoll/ccnet2/issues"
+  },
+  "homepage": "https://github.com/devoll/ccnet2/",
+  "dependencies": {
+    "serialport": "*",
+    "async": "*"
+  }
+}
