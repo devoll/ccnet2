@@ -15,7 +15,8 @@ async.waterfall([
         ccnet.connect(callback);
     },
 
-    function(callback){
+    function(info, callback){
+        console.log(info);
         ccnet.escrow(callback);
     },
 
