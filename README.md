@@ -23,6 +23,7 @@ Installation
 Usage
 -----
 
+See `examples/serialport.js`
 
 Todo list
 ---------
