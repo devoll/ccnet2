@@ -4,34 +4,34 @@
 
 var ccnet = require("../lib/ccnet2")(
         '/dev/tty.usbserial',   // Serial address
-        0x03                    // Device type
-    ),
-    async = require("async")
+        0x03,                   // Device type
+        false                    // enable debug
+    );
 
-async.waterfall([
+ccnet.connect(function(err, info){
+    if(err) throw err;
 
-    // Connect to device
-    function(callback){
-        ccnet.connect(callback);
-    },
+    console.log(info); // Information about connected device
 
-    function(info, callback){
-        console.log(info);
-        ccnet.escrow(callback);
-    },
+    // Enable bangknotes accept
+    ccnet.escrow(function(err, banknote){
+        if(err) throw err;
 
-    function(data, callback){
-        console.log("Get bill: " + JSON.stringify(data));
-        ccnet.stack(callback);
-    },
+        console.log(banknote); // Information about inserted banknote
 
-    function(callback){
-        console.log('Stack ok');
-        ccnet.end(callback);
-    }
+        // Accept inserted banknote
+        ccnet.stack(function(err){
+            if(err) throw err;
 
-], function(err){
-    if(err){
-        throw err;
-    }
+            // End accepting banknotes
+            ccnet.end(function(err){
+                if(err) throw err;
+
+                ccnet.close(function(err){
+                    if(err) throw err;
+                    console.log("Disconnect");
+                });
+            });
+        });
+    });
 });
