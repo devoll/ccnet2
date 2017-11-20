@@ -1,6 +1,6 @@
 {
   "name": "ccnet2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CCNET Protocol",
   "main": "./lib/orm2",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/devoll/ccnet2/",
   "dependencies": {
-    "serialport": "*",
-    "async": "*"
+    "async": "^2.6.0",
+    "serialport": "^6.0.4"
   }
 }
